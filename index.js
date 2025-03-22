@@ -17,8 +17,8 @@ function getData(city) {
     .then((data)=>{
 
         console.log(data)
-        
-        cityDom.textContent = city.toUpperCase();
+
+        cityDom.textContent = data.name.toUpperCase();
 
         let imgStatus = data.weather[0].main;
         if (imgStatus =="Clouds"){
@@ -44,6 +44,9 @@ function getData(city) {
 
         let wind_Value = data.wind.speed;
         windDom.textContent = `${wind_Value} km/h`;
+    })
+    .catch(error => {
+        alert('write valid city name')
     })
 }
 
