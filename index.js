@@ -18,36 +18,38 @@ function getData(city) {
 
         console.log(data)
 
-        cityDom.textContent = data.name.toUpperCase();
+        if(data.cod==404){
+            alert(data.message)
+        } else {
+            cityDom.textContent = data.name.toUpperCase();
 
-        let imgStatus = data.weather[0].main;
-        if (imgStatus =="Clouds"){
-            statusImage.src = 'img/cloudy.png'
-        }else if (imgStatus =="Clear"){
-            statusImage.src = 'img/sun.png'
-        }else if (imgStatus =='Rain'){
-            statusImage.src = 'img/rainy.png'
-        }else if (imgStatus == "Snow"){
-            statusImage.src = 'img/snowy.png'
+            let imgStatus = data.weather[0].main;
+            if (imgStatus =="Clouds"){
+                statusImage.src = 'img/cloudy.png'
+            }else if (imgStatus =="Clear"){
+                statusImage.src = 'img/sun.png'
+            }else if (imgStatus =='Rain'){
+                statusImage.src = 'img/rainy.png'
+            }else if (imgStatus == "Snow"){
+                statusImage.src = 'img/snowy.png'
+            }
+
+            let temparature_Value = data.main.temp;
+            tempDom.textContent = `${temparature_Value} ℃`;
+            if(temparature_Value<=10){
+                tempStatusImage.src = 'img/cold.png'
+            }else {
+                tempStatusImage.src = 'img/hot.png'
+            }
+
+            let humidity_Value = data.main.humidity;
+            humidityDom.textContent = `${humidity_Value}%`;
+
+            let wind_Value = data.wind.speed;
+            windDom.textContent = `${wind_Value} km/h`;
         }
-
-        let temparature_Value = data.main.temp;
-        tempDom.textContent = `${temparature_Value} ℃`;
-        if(temparature_Value<=10){
-            tempStatusImage.src = 'img/cold.png'
-        }else {
-            tempStatusImage.src = 'img/hot.png'
-        }
-
-        let humidity_Value = data.main.humidity;
-        humidityDom.textContent = `${humidity_Value}%`;
-
-        let wind_Value = data.wind.speed;
-        windDom.textContent = `${wind_Value} km/h`;
     })
-    .catch(error => {
-        alert('write valid city name')
-    })
+    
 }
 
 checkBtn.addEventListener('click', ()=> {
