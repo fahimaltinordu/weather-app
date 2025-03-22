@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="title">WEATHER API</h1>
+
+    <div id="inputContainer">
+        <input type="text" id="inputCity" placeholder="City" autocomplete="off">
+        <input type="button" value="Check" id="checkBtn">
+    </div>
+
+    <div id="container">
+
+        <div id="tempContainer">
+            <img id="tempStatus" src="img/hot.png" alt="">
+            <h1 id="temp">27 ℃</h1> 
+        </div>
+
+        <img id="status" src="img/sun.png">
+
+        <h1 id="city">Lisbon</h1>
+
+        <div id="others">
+            <div>
+                <img id="iconHumidity" src="img/humidity.png" alt="">
+                <h3 id="humidity">48%</h3>
+            </div>
+
+            <div>
+                <img id="iconWind" src="img/wind.png" alt="">
+                <h4 id="wind">10 km/h</h4>
+            </div>
+        </div>
+    </div>
+    
+
+
+   <script src="index.js"></script>
+</body>
+</html>
